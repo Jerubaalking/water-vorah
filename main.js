@@ -15,7 +15,11 @@ app.get('/', (req, res)=>{
 app.use('/devices', require('./routes/devices'));
 app.use('/users', require('./routes/users'));
 app.use('/roles', require('./routes/roles.js'));
-
-app.listen(3000, ()=>{
-    console.log('listening on port 3000');
+app.use('/healths', require('./routes/healths.js'));
+app.use('/errors', require('./routes/errors.js'));
+app.use('/collections', require('./routes/collections.js'));
+app.use('/securities', require('./routes/securities.js'));
+const port = process.env.PORT;
+app.listen(port, ()=>{
+    console.log('listening on port '+port);
 })
