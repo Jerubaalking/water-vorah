@@ -3,7 +3,7 @@ const securities = require('../sdk/securities');
 const router = express.Router();
 
 
-router.get('/', securities.show);
-router.post('/', securities.create);
+router.get('/:id', securities.show);
+router.post('/:id', securities.create);
 
 module.exports = router;

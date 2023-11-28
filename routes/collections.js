@@ -3,7 +3,7 @@ const collections = require('../sdk/collections');
 const router = express.Router();
 
 
-router.get('/', collections.show);
-router.post('/', collections.create);
+router.get('/:id', collections.show);
+router.post('/:id', collections.create);
 
 module.exports = router;

@@ -17,10 +17,12 @@ module.exports = {
     create:async (req, res)=>{
         try {
             const data = req.body;
-            console.log(req.body)
+            const deviceId = req.params.id
+            console.log(req.body, deviceId)
             const health = await new Healths();
             health.work_status = data.work_status;
             health.battery_level = data.battery_level;
+            health.deviceId= deviceId;
     
             res.json(await health.save())
             

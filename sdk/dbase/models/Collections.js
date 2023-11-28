@@ -25,6 +25,7 @@ const Collections = sequelize.define('collections', {
 
 Collections.belongsTo(Devices);
 Devices.hasMany(Collections);
+// sequelize.sync({force:true})
 // Create the table if it doesn't exist
 Collections.sync({ force: false }).then((dd) => {
   console.log('Collections table created (if not exists)');

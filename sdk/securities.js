@@ -17,10 +17,13 @@ module.exports = {
     create:async (req, res)=>{
         try {
             const data = req.body;
-            console.log(req.body)
+            const deviceId = req.params.id
+            console.log(req.body, deviceId)
             const security = await new Securities();
             security.vibration_sensor = data.vibration_sensor;
             security.safe_door_sensor = data.safe_door_sensor;
+            security.deviceId= deviceId;
+
     
             res.json(await security.save())
             

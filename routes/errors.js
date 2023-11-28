@@ -3,7 +3,7 @@ const errors = require('../sdk/errors');
 const router = express.Router();
 
 
-router.get('/', errors.show);
-router.post('/', errors.create);
+router.get('/:id', errors.show);
+router.post('/:id', errors.create);
 
 module.exports = router;

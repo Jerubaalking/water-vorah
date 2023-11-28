@@ -17,10 +17,12 @@ module.exports = {
     create:async (req, res)=>{
         try {
             const data = req.body;
-            console.log(req.body)
+            const deviceId = req.params.id
+            console.log(req.body, deviceId)
             const error = await new Errors();
             error.err_num = data.err_num;
             error.err_message = data.err_message;
+            error.deviceId= deviceId;
     
             res.json(await error.save())
             

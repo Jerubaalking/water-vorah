@@ -1,4 +1,6 @@
+const Collections = require('./dbase/models/Collections');
 const Devices = require('./dbase/models/Devices');
+const Errors = require('./dbase/models/Errors');
 
 
 module.exports = {
@@ -7,7 +9,7 @@ module.exports = {
             // const device = await new Devices();
             // device.mnumber = '0001';
     
-            res.json(await Devices.findAll())
+            res.json(await Devices.findAll({include:[{model:Errors}, {model:Collections}]}))
             
           } catch(err) {
             // await transaction.rollback();
@@ -23,6 +25,7 @@ module.exports = {
             device.location = data.location;
             device.make = data.make;
             device.made_in = data.made_in;
+            device.deviceId = deviceId;
     
             res.json(await device.save())
             

@@ -3,7 +3,7 @@ const healths = require('../sdk/healths');
 const router = express.Router();
 
 
-router.get('/', healths.show);
-router.post('/', healths.create);
+router.get('/:id', healths.show);
+router.post('/:id', healths.create);
 
 module.exports = router;
