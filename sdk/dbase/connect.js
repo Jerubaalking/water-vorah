@@ -1,7 +1,7 @@
 const { sequelize, Sequelize, Op } = require("sequelize");
 const mysql = require("mysql2");
 const db = mysql.createPool({
-  host: process.env.DB_HOST,
+  host: 'srv-captain--mysql-db',
   database: process.env.DB_NAME,
   password: process.env.DB_PASSWORD,
   user: process.env.DB_USER,
