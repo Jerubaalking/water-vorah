@@ -9,7 +9,7 @@ app.use(express.json());
 // Middleware to parse URL-encoded requests
 app.use(express.urlencoded({ extended: false }));
 app.get('/', (req, res)=>{
-    res.json({name:"vorah-water-api-v1.0", env:process.env.NODE_ENV});
+    res.json({name:"vorah-water-api-v1.0", version:'1.0'});
 });
 
 app.use('/devices', require('./routes/devices'));
