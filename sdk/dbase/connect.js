@@ -1,7 +1,7 @@
 const { sequelize, Sequelize, Op } = require("sequelize");
 const mysql = require("mysql2");
 const db = mysql.createPool({
-  host: 'srv-captain--mysql-db',
+  host: process.env.DB_HOST,
   database: process.env.DB_NAME,
   password: process.env.DB_PASSWORD,
   user: process.env.DB_USER,
@@ -26,10 +26,14 @@ db.getConnection((err, connection) => {
   );
 });
 const logging = false;
- module.exports = new Sequelize(
-    process.env.DB_NAME,
-    process.env.DB_USER,
-    process.env.DB_PASSWORD,
-    { dialect: "mysql", logging:logging},
-    
-  );
+module.exports = new Sequelize(
+  {
+    database:process.env.DB_NAME,
+    username:process.env.DB_USER,
+    password:process.env.DB_PASSWORD,
+    host:process.env.DB_HOST,
+     dialect: "mysql", 
+     logging:logging,
+  }
+      
+    );
